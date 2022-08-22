@@ -30,41 +30,29 @@ function clearInputs(name, lastName) {
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
     const guest = `${guestName.value} ${guestLastName.value}`;
-
+    stopRefresh();
     switch (e.id) {
       case "addToStart":
         if (guestName.value && guestLastName.value) {
-          stopRefresh();
           guestList.unshift(guest);
-          showGuestList(guestList);
-          break;
-        } else {
-          break;
         }
+        break;
       case "addToEnd":
         if (guestName.value && guestLastName.value) {
-          stopRefresh();
           guestList.push(guest);
-          showGuestList(guestList);
-          break;
-        } else {
-          break;
         }
+        break;
       case "removeFirst":
-        stopRefresh();
         guestList.shift(guest);
-        showGuestList(guestList);
         break;
       case "removeLast":
-        stopRefresh();
         guestList.pop(guest);
-        showGuestList(guestList);
         break;
       case "reverseList":
-        stopRefresh();
         guestList.reverse();
-        showGuestList(guestList);
         break;
     }
+
+    showGuestList(guestList);
   });
 });
