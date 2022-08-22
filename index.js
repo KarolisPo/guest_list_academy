@@ -28,7 +28,6 @@ buttons.forEach((e) => {
     const guestName = document.querySelector("#name");
     const guestLastName = document.querySelector("#lastName");
     const guest = `${guestName.value} ${guestLastName.value}`;
-    clearInputs(guestName, guestLastName);
 
     switch (e.id) {
       case "addToStart":
@@ -36,29 +35,38 @@ buttons.forEach((e) => {
           stopRefresh();
           guestList.unshift(guest);
           showGuestList(guestList);
+          clearInputs(guestName, guestLastName);
+          break;
+        } else {
+          break;
         }
-        break;
       case "addToEnd":
         if (guestName.value && guestLastName.value) {
           stopRefresh();
           guestList.push(guest);
           showGuestList(guestList);
+          clearInputs(guestName, guestLastName);
+          break;
+        } else {
+          break;
         }
-        break;
       case "removeFirst":
         stopRefresh();
         guestList.shift(guest);
         showGuestList(guestList);
+        clearInputs(guestName, guestLastName);
         break;
       case "removeLast":
         stopRefresh();
         guestList.pop(guest);
         showGuestList(guestList);
+        clearInputs(guestName, guestLastName);
         break;
       case "reverseList":
         stopRefresh();
         guestList.reverse();
         showGuestList(guestList);
+        clearInputs(guestName, guestLastName);
         break;
     }
   });
