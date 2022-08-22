@@ -1,5 +1,8 @@
 const buttons = document.querySelectorAll(".userInputWrap button");
 const guestListWrap = document.querySelector(".guestListWrap");
+const guestName = document.querySelector("#name");
+const guestLastName = document.querySelector("#lastName");
+
 let guestList = [];
 
 function stopRefresh() {
@@ -16,6 +19,7 @@ function showGuestList(guests) {
     guestDiv.textContent = `${i + 1}. ${guests[i]}`;
     guestListWrap.appendChild(guestDiv);
   }
+  clearInputs(guestName, guestLastName);
 }
 
 function clearInputs(name, lastName) {
@@ -25,8 +29,6 @@ function clearInputs(name, lastName) {
 
 buttons.forEach((e) => {
   e.addEventListener("click", () => {
-    const guestName = document.querySelector("#name");
-    const guestLastName = document.querySelector("#lastName");
     const guest = `${guestName.value} ${guestLastName.value}`;
 
     switch (e.id) {
@@ -35,7 +37,6 @@ buttons.forEach((e) => {
           stopRefresh();
           guestList.unshift(guest);
           showGuestList(guestList);
-          clearInputs(guestName, guestLastName);
           break;
         } else {
           break;
@@ -45,7 +46,6 @@ buttons.forEach((e) => {
           stopRefresh();
           guestList.push(guest);
           showGuestList(guestList);
-          clearInputs(guestName, guestLastName);
           break;
         } else {
           break;
@@ -54,19 +54,16 @@ buttons.forEach((e) => {
         stopRefresh();
         guestList.shift(guest);
         showGuestList(guestList);
-        clearInputs(guestName, guestLastName);
         break;
       case "removeLast":
         stopRefresh();
         guestList.pop(guest);
         showGuestList(guestList);
-        clearInputs(guestName, guestLastName);
         break;
       case "reverseList":
         stopRefresh();
         guestList.reverse();
         showGuestList(guestList);
-        clearInputs(guestName, guestLastName);
         break;
     }
   });
