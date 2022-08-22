@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll(".userInputWrap button");
 const guestListWrap = document.querySelector(".guestListWrap");
 const guestName = document.querySelector("#name");
 const guestLastName = document.querySelector("#lastName");
+const specificNum = document.querySelector("#specificNum");
 
 let guestList = [];
 
@@ -19,12 +20,13 @@ function showGuestList(guests) {
     guestDiv.textContent = `${i + 1}. ${guests[i]}`;
     guestListWrap.appendChild(guestDiv);
   }
-  clearInputs(guestName, guestLastName);
+  clearInputs(guestName, guestLastName, specificNum);
 }
 
-function clearInputs(name, lastName) {
-  name.value = null;
-  lastName.value = null;
+function clearInputs(value1, value2, value3) {
+  value1.value = null;
+  value2.value = null;
+  value3.value = null;
 }
 
 buttons.forEach((e) => {
@@ -50,6 +52,27 @@ buttons.forEach((e) => {
         break;
       case "reverseList":
         guestList.reverse();
+        break;
+      case "removeFromTo":
+        const removeFrom = Number(document.querySelector("#removeFrom").value);
+        const removeTo = Number(document.querySelector("#removeTo").value);
+        if (removeFrom > 0 && removeTo > 0) {
+          guestList.splice(removeFrom - 1, removeTo);
+        }
+        break;
+      case "addSpecific":
+        const guestLineNumber = Number(specificNum.value);
+        if (0 < guestLineNumber) {
+          guestList.splice(guestLineNumber - 1, 0, guest);
+        }
+        break;
+      case "lastToFirst":
+        const lastGuest = guestList.pop();
+        guestList.unshift(lastGuest);
+        break;
+      case "firstToLast":
+        const firstGuest = guestList.shift();
+        guestList.push(firstGuest);
         break;
     }
 

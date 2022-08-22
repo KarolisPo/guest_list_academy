@@ -12,11 +12,11 @@
         <form id="addGuestForm">
           <div>
             <label> Name:</label>
-            <input type="text" id="name"/>
+            <input type="text" id="name" />
           </div>
           <div>
             <label> Last name:</label>
-            <input type="text" id="lastName"/>
+            <input type="text" id="lastName" />
           </div>
           <div class="btnWrap">
             <button type="submit" id="addToStart">ADD TO START</button>
@@ -24,16 +24,34 @@
           <div class="btnWrap">
             <button type="submit" id="addToEnd">ADD TO END</button>
           </div>
+          <div class="btnWrap">
+            <label>Insert guest as number:</label>
+            <input type="tel" placeholder="Guest line number" id="specificNum"/>
+            <button type="submit" id="addSpecific">SUBMIT</button>
+          </div>
+          <div class="btnWrap">
+            <button id="removeFirst">REMOVE FIRST</button>
+          </div>
+          <div class="btnWrap">
+            <button id="removeLast">REMOVE LAST</button>
+          </div>
+          <div class="btnWrap">
+            <button id="reverseList">REVERSE GUEST LIST</button>
+          </div>
+          <div class="removeGuestsWrap">
+            <label>Remove guests from:</label>
+            <input type="tel" id="removeFrom" />
+            <label>to:</label>
+            <input type="tel" id="removeTo" />
+            <button id="removeFromTo">Remove guests</button>
+          </div>
+          <div class="btnWrap">
+            <button id="lastToFirst">LAST TO FIRST</button>
+          </div>
+          <div class="btnWrap">
+            <button id="firstToLast">FIRST TO LAST</button>
+          </div>
         </form>
-        <div class="btnWrap">
-          <button id="removeFirst">REMOVE FIRST</button>
-        </div>
-        <div class="btnWrap">
-          <button id="removeLast">REMOVE LAST</button>
-        </div>
-        <div class="btnWrap">
-          <button id="reverseList">REVERSE GUEST LIST</button>
-        </div>
       </div>
       <div class="guestListWrap"></div>
     </main>
