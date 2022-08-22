@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guest List</title>
+  </head>
+  <body>
+    <main>
+      <div class="userInputWrap">
+        <form id="addGuestForm">
+          <div>
+            <label> Name:</label>
+            <input type="text" id="name" required/>
+          </div>
+          <div>
+            <label> Last name:</label>
+            <input type="text" id="lastName" required/>
+          </div>
+          <div class="btnWrap">
+            <button type="submit" id="addToStart">ADD TO START</button>
+          </div>
+          <div class="btnWrap">
+            <button type="submit" id="addToEnd">ADD TO END</button>
+          </div>
+        </form>
+        <div class="btnWrap">
+          <button id="removeFirst">REMOVE FIRST</button>
+        </div>
+        <div class="btnWrap">
+          <button id="removeLast">REMOVE LAST</button>
+        </div>
+        <div class="btnWrap">
+          <button id="reverseList">REVERSE GUEST LIST</button>
+        </div>
+      </div>
+      <div class="guestListWrap"></div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
