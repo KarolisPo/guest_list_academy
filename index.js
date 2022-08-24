@@ -74,6 +74,12 @@ buttons.forEach((e) => {
         const firstGuest = guestList.shift();
         guestList.push(firstGuest);
         break;
+      case "aToZ":
+        guestList.sort();
+        break;
+      case "zToA":
+        guestList.sort().reverse();
+        break;
     }
 
     showGuestList(guestList);
